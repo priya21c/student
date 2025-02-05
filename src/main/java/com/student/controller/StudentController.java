@@ -30,7 +30,7 @@ public class StudentController {
     public List<Student> createOrUpdateStudent(@RequestBody List<Student> student) {
         return studentService.saveStudent(student);
     }
-    @GetMapping("/get")
+    @GetMapping("/gets")
     public List<Student> getAllStudents() {
         return studentService.getAllStudents();
     }
