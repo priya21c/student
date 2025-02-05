@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -59,7 +60,16 @@ public class StudentController {
     public void deleteStudent(@PathVariable Long rollNo) {
         studentService.deleteStudent(rollNo);
     }
-    
+    @GetMapping("/second-highest")
+    public ResponseEntity<?> getSecondHighestMarksStudent() {
+        Optional<Student> student = studentService.getSecondHighestMarksStudent();
 
+        if (student.isPresent()) {
+            return ResponseEntity.ok(student.get());
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("No student found with second highest marks.");
+        }
+    }
 
 }

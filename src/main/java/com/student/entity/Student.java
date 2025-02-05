@@ -9,13 +9,13 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="student")
 public class Student {
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long rollNo;
     
-    
     private String name;
     private String cityName;
+    private int marks; // Added marks field
 
     // Getters and setters
     public Long getRollNo() {
@@ -41,6 +41,12 @@ public class Student {
     public void setCityName(String cityName) {
         this.cityName = cityName;
     }
-	
 
+    public int getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int marks) {
+        this.marks = marks;
+    }
 }

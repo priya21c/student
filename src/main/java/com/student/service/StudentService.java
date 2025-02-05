@@ -38,6 +38,9 @@ public class StudentService {
         // student=new Student();
         //student.name;
     }
+    public Optional<Student> getSecondHighestMarksStudent() {
+        return studentRepository.findSecondHighestMarksStudent();
+    }
  
 }
 
