@@ -10,7 +10,7 @@ import com.student.entity.Student;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-	@Query(value = "SELECT * FROM student ORDER BY marks DESC LIMIT 1 OFFSET 2", nativeQuery = true)
+	@Query(value = "SELECT * FROM student ORDER BY marks DESC LIMIT 1 OFFSET 1", nativeQuery = true)
     Optional<Student> findSecondHighestMarksStudent();
 	
 }
